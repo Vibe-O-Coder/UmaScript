@@ -1,0 +1,15 @@
+dist/*
+.test-tmp/
+__pycache__/
+.uma/
+toolchain/
+*.pyc
+*.umac
+*.obj
+*.o
+*.uma-tmp-*
+_uma_native_*
+examples/*.exe
+benchmarks/results/*.exe
+benchmarks/results/numeric-cpp
+benchmarks/results/numeric-uma

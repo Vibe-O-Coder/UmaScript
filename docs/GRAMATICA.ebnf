@@ -1,0 +1,45 @@
+(* Gramática de referência. ID exclui palavras reservadas. *)
+programa       = { importacao | classe | funcao | instrucao } ;
+importacao     = "import", TEXTO, ";" ;
+tipo           = ("speed" | "stamina" | "power" | "guts" | "wit" | "track" | ID), { "[", "]" } ;
+variavel       = tipo, ID, [ "=", expressao ] ;
+parametros     = "(", [ tipo, ID, { ",", tipo, ID } ], ")" ;
+funcao         = tipo, ID, parametros, bloco ;
+classe         = "rudolf", ID, [ "diamond", ID ], "{", { membro }, "}", [ ";" ] ;
+membro         = [ "condor" | "groove" ], (construtor | funcao | variavel, ";") ;
+construtor     = "opera", parametros, [ ":", "mcqueen", "(", argumentos, ")" ], bloco ;
+bloco          = "{", { instrucao }, "}" ;
+instrucao      = bloco
+               | variavel, ";"
+               | [ expressao ], ";"
+               | "scarlet", "(", expressao, ")", bloco, [ "vodka", (bloco | condicional) ]
+               | "goldship", "(", expressao, ")", bloco
+               | "kitasan", "(", [ variavel | expressao ], ";", [ expressao ], ";", [ expressao ], ")", bloco
+               | "special", [ expressao ], ";"
+               | "rice", ";"
+               | "urara", ";" ;
+condicional    = "scarlet", "(", expressao, ")", bloco, [ "vodka", (bloco | condicional) ] ;
+expressao      = atribuicao ;
+atribuicao     = ou, [ ("=" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>="), atribuicao ] ;
+ou             = e, { "||", e } ;
+e              = bits_ou, { "&&", bits_ou } ;
+bits_ou        = bits_xor, { "|", bits_xor } ;
+bits_xor       = bits_e, { "^", bits_e } ;
+bits_e         = igualdade, { "&", igualdade } ;
+igualdade      = comparacao, { ("==" | "!="), comparacao } ;
+comparacao     = deslocamento, { ("<" | "<=" | ">" | ">="), deslocamento } ;
+deslocamento   = soma, { ("<<" | ">>"), soma } ;
+soma           = produto, { ("+" | "-"), produto } ;
+produto        = unario, { ("*" | "/" | "%"), unario } ;
+unario         = ("!" | "~" | "+" | "-" | "++" | "--"), unario
+               | "tachyon", ID, "(", argumentos, ")", { sufixo }
+               | primario, { sufixo } ;
+sufixo         = "(", argumentos, ")" | ".", ID | "[", expressao, "]" | "++" | "--" ;
+primario       = NUMERO | TEXTO | CARACTERE | ID | NATIVA
+               | "turf" | "dirt" | "nature" | "teio" | "mcqueen"
+               | "(", expressao, ")" | "[", argumentos, "]" ;
+argumentos     = [ expressao, { ",", expressao } ] ;
+
+(* Restrições de tipos, visibilidade, destinos alteráveis e posições válidas
+   de power, rice, urara e special são aplicadas após a análise sintática.
+   Não há declaração de função dentro de um bloco de instruções. *)

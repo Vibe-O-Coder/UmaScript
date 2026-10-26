@@ -1,0 +1,20 @@
+speed fatorial(speed n) {
+    scarlet (n <= 1) {
+        special 1;
+    } vodka {
+        special n * fatorial(n - 1);
+    }
+}
+
+speed fibonacci(speed n) {
+    scarlet (n <= 1) {
+        special n;
+    } vodka {
+        special fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+bakushin("Fatorial de 6:", fatorial(6));
+bakushin("Fibonacci de 10:", fibonacci(10));
+flash(fatorial(6) == 720);
+flash(fibonacci(10) == 55);

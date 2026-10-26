@@ -1,0 +1,14 @@
+/// Relogio monotono em nanossegundos. Use diferencas; a origem nao e uma data.
+speed nanoTime() { special uma_clock(); }
+/// Suspende a thread por milissegundos; negativos produzem erro.
+power sleep(speed milissegundos) { uma_sleep(milissegundos); }
+/// Cronometro monotono. elapsed retorna nanossegundos desde criacao/reset.
+rudolf Stopwatch {
+    groove speed inicio;
+    opera() { teio.inicio = nanoTime(); }
+    condor power reset() { teio.inicio = nanoTime(); }
+    condor speed elapsed() { special nanoTime() - teio.inicio; }
+}
+
+/// Segundos UTC desde 1970-01-01.
+speed unixTime(){special uma_unix_time();}

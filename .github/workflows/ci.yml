@@ -1,0 +1,69 @@
+name: Build and test
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - uses: msys2/setup-msys2@v2
+        if: runner.os == 'Windows'
+        with:
+          msystem: UCRT64
+          install: mingw-w64-ucrt-x86_64-gcc
+          path-type: inherit
+      - name: Build Linux
+        if: runner.os == 'Linux'
+        run: sh build.sh
+      - name: Build Windows
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        run: |
+          python tools/generate_vocabulary.py
+          mkdir -p bin/windows-x64
+          g++ -std=c++17 -O2 -static -municode -Wl,--stack,268435456 -Wl,--no-insert-timestamp src/uma.cpp -o bin/windows-x64/uma.exe -lshell32 -lole32 -ladvapi32 -luser32 -luuid
+          python -c "from pathlib import Path;import tomllib;Path('bin/windows-x64/version.txt').write_text(tomllib.loads(Path('palavras.toml').read_text())['version'])"
+          cygpath -w /ucrt64/bin >> "$GITHUB_PATH"
+      - name: Regression and differential tests
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Windows ]; then UMA=bin/windows-x64/uma.exe; else UMA=bin/linux-x64/uma; fi
+          python tests/run_tests.py "$UMA" source
+          python tests/run_tests.py "$UMA" bytecode
+          python tests/run_tests.py "$UMA" executable
+          python tests/test_compiler.py "$UMA"
+          python tests/test_v3.py "$UMA"
+          python tests/test_v31.py "$UMA"
+          python tests/test_lsp.py "$UMA"
+          node --test vscode-extension/test/language-service.test.js
+          python benchmarks/suite.py --uma "$UMA" --samples 1
+      - name: Memory cycles
+        shell: bash
+        run: |
+          mkdir -p .test-tmp
+          g++ -std=c++17 -O2 tests/runtime_memory.cpp -o .test-tmp/memory-test
+          .test-tmp/memory-test
+      - name: Portable package
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Windows ]; then TARGET=windows-x64; else TARGET=linux-x64; fi
+          python tools/package_release.py --platform "$TARGET"
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: UmaScript-${{ runner.os }}
+          path: |
+            dist/*3.1.0*.zip
+            dist/SHA256SUMS.txt
+            benchmarks/results/suite-3.1.json
+          if-no-files-found: error

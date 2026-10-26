@@ -1,0 +1,27 @@
+speed[] treinos = [3, 1, 4];
+falcon(treinos, 2);
+
+// Ordenacao por insercao, sem recorrer a codigo da linguagem hospedeira.
+kitasan (speed i = 1; i < oguri(treinos); i++) {
+    speed atual = treinos[i];
+    speed j = i - 1;
+    goldship (j >= 0 && treinos[j] > atual) {
+        treinos[j + 1] = treinos[j];
+        j--;
+    }
+    treinos[j + 1] = atual;
+}
+bakushin("Treinos:", treinos);
+bakushin("Ultimo:", dober(treinos));
+
+wit nome = "Vitória";
+guts acento = nome[3];
+bakushin(nome, oguri(nome), acento);
+flash(acento == 'ó');
+flash(ticket(hayahide('馬')) == '馬');
+bakushin("Unicode:", '馬', ticket(233));
+
+stamina[][] matriz = [[1, 2.5], [3, 4]];
+matriz[1][0] = 7;
+bakushin("Matriz:", matriz);
+flash(matriz[1][0] == 7.0);

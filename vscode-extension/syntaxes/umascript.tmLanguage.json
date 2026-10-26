@@ -1,0 +1,81 @@
+{
+  "name": "UmaScript",
+  "scopeName": "source.uma",
+  "patterns": [
+    {
+      "name": "comment.line.documentation.uma",
+      "match": "///.*$"
+    },
+    {
+      "name": "comment.line.double-slash.uma",
+      "match": "//.*$"
+    },
+    {
+      "name": "comment.block.uma",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "name": "string.quoted.double.uma",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.uma",
+          "match": "\\\\(?:[nrt0\\\\\"']|u\\{[0-9a-fA-F]+\\})"
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.single.uma",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.uma",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "keyword.control.uma",
+      "match": "\\b(?:scarlet|vodka|goldship|kitasan|rice|urara|special|import)\\b"
+    },
+    {
+      "name": "storage.modifier.uma",
+      "match": "\\b(?:condor|groove|diamond)\\b"
+    },
+    {
+      "name": "storage.type.uma",
+      "match": "\\b(?:speed|stamina|power|guts|wit|track|rudolf)\\b"
+    },
+    {
+      "name": "constant.language.uma",
+      "match": "\\b(?:turf|dirt|nature)\\b"
+    },
+    {
+      "name": "variable.language.uma",
+      "match": "\\b(?:teio|mcqueen)\\b"
+    },
+    {
+      "name": "keyword.operator.new.uma",
+      "match": "\\b(?:tachyon|opera)\\b"
+    },
+    {
+      "name": "constant.numeric.uma",
+      "match": "\\b[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\\b"
+    },
+    {
+      "name": "entity.name.function.uma",
+      "match": "\\b[A-Za-z_][A-Za-z_0-9]*(?=\\s*\\()"
+    },
+    {
+      "name": "keyword.operator.uma",
+      "match": "<<=?|>>=?|[-+*/%=&|^!~<>]+"
+    },
+    {
+      "name": "keyword.control.umascript",
+      "match": "\\b(?:adota|as|bool|borrow|break|catch|char|class|como|condor|const|constructor|continue|convocar|desaquecer|desclassificar|diamond|dirt|else|em|estilo|extends|false|finally|float|fn|for|goldship|groove|guts|if|implements|import|in|int|interface|kitasan|mcqueen|move|mover|mut|nature|new|null|opera|own|power|private|public|return|rice|rudolf|scarlet|special|speed|stamina|string|super|tachyon|tatica|teio|this|throw|track|treino|trofeu|tropeco|true|try|turf|urara|vodka|void|while|wit)\\b"
+    }
+  ]
+}

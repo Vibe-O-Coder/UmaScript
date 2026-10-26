@@ -1,0 +1,3 @@
+#!/bin/sh
+umascript_package_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "$umascript_package_dir/bin/linux-x64/uma" "$@"

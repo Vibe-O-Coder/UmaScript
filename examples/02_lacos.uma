@@ -1,0 +1,22 @@
+speed vitorias = 0;
+kitasan (speed sessao = 1; sessao <= 5; sessao++) {
+    scarlet (sessao == 2) {
+        urara; // Continua no proximo treino.
+    }
+    vitorias += sessao;
+}
+
+speed energia = 5;
+goldship (energia > 0) {
+    energia--;
+    scarlet (energia == 2) {
+        rice; // Sai do laco.
+    }
+}
+
+scarlet (vitorias == 13 && energia == 2) {
+    bakushin("Treino concluido:", vitorias, energia);
+} vodka {
+    bakushin("Resultado inesperado.");
+}
+flash(vitorias == 13 && energia == 2, "Lacos incorretos.");

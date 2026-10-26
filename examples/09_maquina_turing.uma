@@ -1,0 +1,39 @@
+/* Fita bilateral ligada: nenhum indice numerico controla seu tamanho.
+ * Maquina de Turing simples: percorre os tres 1 de 111 e acrescenta um 1.
+ */
+rudolf Celula {
+    condor guts simbolo = '_';
+    condor Celula esquerda = nature;
+    condor Celula direita = nature;
+}
+
+Celula inicio = tachyon Celula();
+Celula cabeca = inicio;
+kitasan (speed i = 0; i < 3; i++) {
+    cabeca.simbolo = '1';
+    cabeca.direita = tachyon Celula();
+    cabeca.direita.esquerda = cabeca;
+    cabeca = cabeca.direita;
+}
+cabeca = inicio;
+speed estado = 0;
+goldship (estado != 1) {
+    scarlet (cabeca.simbolo == '1') {
+        scarlet (cabeca.direita == nature) {
+            cabeca.direita = tachyon Celula();
+            cabeca.direita.esquerda = cabeca;
+        }
+        cabeca = cabeca.direita;
+    } vodka {
+        cabeca.simbolo = '1';
+        estado = 1;
+    }
+}
+wit fita = "";
+cabeca = inicio;
+goldship (cabeca != nature) {
+    fita = fita + cabeca.simbolo;
+    cabeca = cabeca.direita;
+}
+bakushin("Fita final:", fita);
+flash(fita == "1111");

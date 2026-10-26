@@ -1,0 +1,9 @@
+power aumentar(borrow mut speed[] valores) { valores[0]++; }
+own speed[] valores = [10, 20];
+{
+    borrow speed[] leitura = &valores;
+    bakushin("Leitura:", leitura[0]);
+}
+aumentar(&mut valores);
+own speed[] resultado = mover(valores);
+bakushin("Dono final:", resultado);

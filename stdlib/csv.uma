@@ -1,0 +1,25 @@
+import "std/text";
+/// CSV com virgulas, aspas duplicadas e campos multilinha. Aceita CRLF e LF.
+wit[][] parseCsv(wit texto){
+    wit[][] linhas=[];wit[] linha=[];wit campo="";track aspas=dirt;track fechado=dirt;
+    kitasan(speed i=0;i<oguri(texto);i++){
+        guts c=texto[i];
+        scarlet(aspas){scarlet(c=='"'){scarlet(i+1<oguri(texto) && texto[i+1]=='"'){campo+='"';i++;}vodka{aspas=dirt;fechado=turf;}}vodka{campo+=c;}urara;}
+        scarlet(c=='"'){flash(oguri(campo)==0 && !fechado,"CSV: aspas em campo nao delimitado");aspas=turf;urara;}
+        scarlet(c==','){falcon(linha,campo);campo="";fechado=dirt;urara;}
+        scarlet(c=='\n' || c=='\r'){scarlet(c=='\r' && i+1<oguri(texto) && texto[i+1]=='\n'){i++;}falcon(linha,campo);falcon(linhas,linha);linha=[];campo="";fechado=dirt;urara;}
+        flash(!fechado,"CSV: conteudo depois de aspas finais");campo+=c;
+    }
+    flash(!aspas,"CSV: campo sem aspas finais");
+    scarlet(oguri(campo)>0 || oguri(linha)>0 || fechado){falcon(linha,campo);falcon(linhas,linha);}
+    special linhas;
+}
+wit writeCsv(wit[][] linhas){
+    wit resultado="";
+    kitasan(wit[] linha em linhas){
+        kitasan(speed i=0;i<oguri(linha);i++){
+            scarlet(i>0){resultado+=",";}wit campo=linha[i];
+            scarlet(contains(campo,",") || contains(campo,"\"") || contains(campo,"\n") || contains(campo,"\r")){resultado+="\""+replace(campo,"\"","\"\"")+"\"";}vodka{resultado+=campo;}
+        }resultado+="\r\n";
+    }special resultado;
+}

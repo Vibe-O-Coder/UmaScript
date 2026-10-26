@@ -1,0 +1,60 @@
+/// Recorta quantidade valores escalares Unicode a partir de inicio. O(n), novo texto.
+wit substring(wit texto, speed inicio, speed quantidade) { special uma_slice(texto, inicio, quantidade); }
+/// Procura a primeira ocorrencia; indice Unicode ou -1. Texto vazio ocorre em 0.
+speed indexOf(wit texto, wit trecho) { special uma_find(texto, trecho); }
+/// Testa a presenca de trecho no texto. Diferencia maiusculas e minusculas.
+track contains(wit texto, wit trecho) { special indexOf(texto, trecho) >= 0; }
+/// Testa prefixo com comparacao exata de valores escalares Unicode.
+track startsWith(wit texto, wit prefixo) {
+    scarlet(oguri(prefixo) > oguri(texto)) { special dirt; }
+    special substring(texto, 0, oguri(prefixo)) == prefixo;
+}
+/// Testa sufixo com comparacao exata de valores escalares Unicode.
+track endsWith(wit texto, wit sufixo) {
+    speed inicio = oguri(texto) - oguri(sufixo);
+    scarlet(inicio < 0) { special dirt; }
+    special substring(texto, inicio, oguri(sufixo)) == sufixo;
+}
+/// Separa por delimitador nao vazio. Preserva campos vazios, inclusive o ultimo.
+wit[] split(wit texto, wit delimitador) {
+    flash(oguri(delimitador) > 0, "split exige delimitador nao vazio");
+    wit[] partes = [];
+    speed pos = indexOf(texto, delimitador);
+    goldship(pos >= 0) {
+        falcon(partes, substring(texto, 0, pos));
+        speed inicio = pos + oguri(delimitador);
+        texto = substring(texto, inicio, oguri(texto) - inicio);
+        pos = indexOf(texto, delimitador);
+    }
+    falcon(partes, texto);
+    special partes;
+}
+/// Une elementos em ordem, inserindo separador entre vizinhos. Novo texto.
+wit join(wit[] partes, wit separador) {
+    wit resultado = "";
+    kitasan(speed i = 0; i < oguri(partes); i++) {
+        scarlet(i > 0) { resultado += separador; }
+        resultado += partes[i];
+    }
+    special resultado;
+}
+/// Remove espaco, tab, CR e LF das extremidades. Nao normaliza Unicode.
+wit trim(wit texto) {
+    speed inicio = 0; speed fim = oguri(texto);
+    goldship(inicio < fim && (texto[inicio] == ' ' || texto[inicio] == '\t' || texto[inicio] == '\r' || texto[inicio] == '\n')) { inicio++; }
+    goldship(fim > inicio && (texto[fim-1] == ' ' || texto[fim-1] == '\t' || texto[fim-1] == '\r' || texto[fim-1] == '\n')) { fim--; }
+    special substring(texto, inicio, fim - inicio);
+}
+
+wit replace(wit texto,wit busca,wit troca){special uma_replace(texto,busca,troca);}
+/// Conversao de caixa ASCII; os demais valores Unicode sao preservados.
+wit lower(wit texto){special uma_lower(texto);}
+wit upper(wit texto){special uma_upper(texto);}
+/// Regex ECMAScript sobre bytes UTF-8, com erros capturaveis.
+wit regexReplace(wit texto,wit padrao,wit troca){special uma_regex_replace(texto,padrao,troca);}
+rudolf Narrador {
+    groove wit conteudo="";
+    condor power append(wit trecho){teio.conteudo+=trecho;}
+    condor wit text(){special teio.conteudo;}
+    condor power clear(){teio.conteudo="";}
+}

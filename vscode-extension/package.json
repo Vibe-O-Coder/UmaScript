@@ -1,0 +1,117 @@
+{
+  "name": "umascript",
+  "displayName": "UmaScript",
+  "description": "UmaScript: tipos estaticos, IntelliSense, documentacao tecnica, diagnosticos e compilacao nativa.",
+  "version": "3.1.0",
+  "publisher": "umascript-language",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onLanguage:umascript"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Coloracao e snippets disponiveis; analise e execucao exigem confianca no projeto.",
+      "restrictedConfigurations": [
+        "umascript.compilerPath",
+        "umascript.cxxPath"
+      ]
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "umascript",
+        "aliases": [
+          "UmaScript",
+          "uma"
+        ],
+        "extensions": [
+          ".uma"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "umascript",
+        "scopeName": "source.uma",
+        "path": "./syntaxes/umascript.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "umascript",
+        "path": "./snippets/umascript.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "umascript.check",
+        "title": "UmaScript: Verificar programa"
+      },
+      {
+        "command": "umascript.run",
+        "title": "UmaScript: Executar programa"
+      },
+      {
+        "command": "umascript.buildNative",
+        "title": "UmaScript: Compilar executavel nativo"
+      },
+      {
+        "command": "umascript.buildBytecode",
+        "title": "UmaScript: Compilar bytecode"
+      },
+      {
+        "command": "umascript.documentation",
+        "title": "UmaScript: Abrir referencia tecnica"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "umascript.run",
+          "when": "resourceLangId == umascript",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "UmaScript",
+      "properties": {
+        "umascript.compilerPath": {
+          "type": "string",
+          "default": "",
+          "description": "Caminho do compilador uma 3.0. Vazio usa o compilador incluido na extensao.",
+          "scope": "machine-overridable"
+        },
+        "umascript.cxxPath": {
+          "type": "string",
+          "default": "",
+          "description": "GCC/Clang para compilar codigo nativo. Vazio usa a descoberta automatica.",
+          "scope": "machine-overridable"
+        },
+        "umascript.diagnosticsDelay": {
+          "type": "number",
+          "minimum": 100,
+          "maximum": 5000,
+          "default": 350,
+          "description": "Atraso da verificacao apos editar, em milissegundos."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "package": "python ../tools/package_vscode.py"
+  }
+}

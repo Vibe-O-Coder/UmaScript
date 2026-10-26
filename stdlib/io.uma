@@ -1,0 +1,20 @@
+/// Le arquivo UTF-8 inteiro. Erros de E/S e UTF-8 interrompem a execucao.
+wit readText(wit caminho) { special uma_read_text(caminho); }
+/// Substitui o conteudo do arquivo por texto UTF-8. Nao cria diretorios.
+power writeText(wit caminho, wit conteudo) { uma_write_text(caminho, conteudo); }
+/// Acrescenta texto ao fim do arquivo, criando-o se necessario.
+power appendText(wit caminho, wit conteudo) { uma_append_text(caminho, conteudo); }
+/// Consulta a existencia do caminho. Erros de acesso sao reportados.
+track exists(wit caminho) { special uma_exists(caminho); }
+/// Le arquivo binario como inteiros de 0 a 255.
+speed[] readBytes(wit caminho) { special uma_read_bytes(caminho); }
+/// Grava arquivo binario; rejeita qualquer elemento fora de 0..255.
+power writeBytes(wit caminho, speed[] bytes) { uma_write_bytes(caminho, bytes); }
+
+track fimEntrada(){special uma_eof();}
+wit lerTudo(){special uma_read_all();}
+power criarDiretorio(wit caminho){uma_mkdir(caminho);}
+track remover(wit caminho){special uma_remove(caminho);}
+wit[] listarDiretorio(wit caminho){special uma_list_dir(caminho);}
+wit juntarCaminho(wit pasta,wit nome){special uma_path_join(pasta,nome);}
+wit nomeArquivo(wit caminho){special uma_basename(caminho);}

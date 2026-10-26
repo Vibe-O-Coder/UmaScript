@@ -1,0 +1,33 @@
+/// Retorna o menor de dois inteiros de 64 bits. O(1), sem alocacao.
+speed min(speed a, speed b) { scarlet(a < b) { special a; } special b; }
+/// Retorna o maior de dois inteiros. O(1), sem alocacao.
+speed max(speed a, speed b) { scarlet(a > b) { special a; } special b; }
+/// Restringe valor ao intervalo inclusivo [baixo, alto]. Rejeita intervalo invertido.
+speed clamp(speed valor, speed baixo, speed alto) {
+    flash(baixo <= alto, "clamp: intervalo invertido");
+    special min(max(valor, baixo), alto);
+}
+/// Valor absoluto inteiro. INT64_MIN produz erro de overflow.
+speed abs(speed valor) { scarlet(valor < 0) { special -valor; } special valor; }
+/// Raiz quadrada real. Argumentos negativos produzem erro de execucao.
+stamina sqrt(stamina valor) { special uma_sqrt(valor); }
+/// Potencia real; resultados NaN e infinitos sao rejeitados.
+stamina pow(stamina base, stamina expoente) { special uma_pow(base, expoente); }
+/// Seno; argumento em radianos.
+stamina sin(stamina radianos) { special uma_sin(radianos); }
+/// Cosseno; argumento em radianos.
+stamina cos(stamina radianos) { special uma_cos(radianos); }
+/// Arredonda em direcao a menos infinito; retorno stamina.
+stamina floor(stamina valor) { special uma_floor(valor); }
+/// Arredonda em direcao a mais infinito; retorno stamina.
+stamina ceil(stamina valor) { special uma_ceil(valor); }
+/// Logaritmo natural. Exige valor estritamente positivo.
+stamina log(stamina valor) { special uma_log(valor); }
+/// Pi com a precisao do formato IEEE 754 binary64.
+stamina pi() { special 3.14159265358979323846; }
+/// Maximo divisor comum para inteiros nao negativos; gcd(0,0) = 0.
+speed gcd(speed a, speed b) {
+    flash(a >= 0 && b >= 0, "gcd exige inteiros nao negativos");
+    goldship(b != 0) { speed r = a % b; a = b; b = r; }
+    special a;
+}

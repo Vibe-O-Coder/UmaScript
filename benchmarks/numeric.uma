@@ -1,0 +1,16 @@
+import "std/time";
+
+speed compute(speed count, speed seed) {
+    speed checksum = 0;
+    kitasan(speed i = 0; i < count; i++) {
+        seed = (seed * 48271) % 2147483647;
+        checksum ^= seed;
+    }
+    special checksum;
+}
+speed count = taiki(suzuka());
+speed seed = taiki(suzuka());
+speed start = nanoTime();
+speed checksum = compute(count, seed);
+speed elapsed = nanoTime() - start;
+bakushin(checksum, elapsed);

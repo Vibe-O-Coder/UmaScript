@@ -1,0 +1,376 @@
+{
+  "Funcao tipada": {
+    "prefix": "func",
+    "body": [
+      "${1:speed} ${2:nome}(${3:speed valor}) {",
+      "    special ${4:valor};",
+      "}"
+    ],
+    "description": "Funcao com retorno estaticamente verificado"
+  },
+  "Classe": {
+    "prefix": "rudolf",
+    "body": [
+      "rudolf ${1:Corredora} {",
+      "    groove speed ${2:velocidade};",
+      "",
+      "    opera(speed valor) {",
+      "        teio.${2:velocidade} = valor;",
+      "    }",
+      "",
+      "    condor speed ritmo() {",
+      "        special teio.${2:velocidade};",
+      "    }",
+      "}"
+    ],
+    "description": "Classe com campo privado e construtor"
+  },
+  "Laco contado": {
+    "prefix": "kitasan",
+    "body": [
+      "kitasan(speed ${1:i} = 0; ${1:i} < ${2:10}; ${1:i}++) {",
+      "    $0",
+      "}"
+    ]
+  },
+  "Condicional": {
+    "prefix": "scarlet",
+    "body": [
+      "scarlet(${1:condicao}) {",
+      "    $0",
+      "}"
+    ]
+  },
+  "Enquanto": {
+    "prefix": "goldship",
+    "body": [
+      "goldship(${1:condicao}) {",
+      "    $0",
+      "}"
+    ]
+  },
+  "Importar modulo": {
+    "prefix": "import",
+    "body": "import \"${1:std/math}\";"
+  },
+  "Documentacao": {
+    "prefix": "doc",
+    "body": "/// ${1:Comportamento, tipos, efeitos, complexidade e erros.}"
+  },
+  "Imprimir": {
+    "prefix": "bakushin",
+    "body": "bakushin(${1:valor});"
+  },
+  "Verificacao": {
+    "prefix": "flash",
+    "body": "flash(${1:condicao}, \"${2:mensagem}\");"
+  },
+  "ownership": {
+    "prefix": "own",
+    "body": [
+      "own ${1:speed[]} ${2:valores} = ${3:[1, 2, 3]};"
+    ]
+  },
+  "borrow": {
+    "prefix": "borrow",
+    "body": [
+      "{",
+      "    borrow ${1:speed[]} ${2:leitura} = &${3:origem};",
+      "    $0",
+      "}"
+    ]
+  },
+  "try": {
+    "prefix": "treino",
+    "body": [
+      "treino {",
+      "    $1",
+      "} tropeco (wit ${2:erro}) {",
+      "    bakushin(${2:erro});",
+      "} desaquecer {",
+      "    $0",
+      "}"
+    ]
+  },
+  "interface": {
+    "prefix": "estilo",
+    "body": [
+      "estilo ${1:Corredor} {",
+      "    speed ritmo();",
+      "}"
+    ]
+  },
+  "vocabulary-speed": {
+    "prefix": "speed",
+    "body": [
+      "speed"
+    ],
+    "description": "speed = int"
+  },
+  "vocabulary-stamina": {
+    "prefix": "stamina",
+    "body": [
+      "stamina"
+    ],
+    "description": "stamina = float"
+  },
+  "vocabulary-power": {
+    "prefix": "power",
+    "body": [
+      "power"
+    ],
+    "description": "power = void"
+  },
+  "vocabulary-guts": {
+    "prefix": "guts",
+    "body": [
+      "guts"
+    ],
+    "description": "guts = char"
+  },
+  "vocabulary-wit": {
+    "prefix": "wit",
+    "body": [
+      "wit"
+    ],
+    "description": "wit = string"
+  },
+  "vocabulary-track": {
+    "prefix": "track",
+    "body": [
+      "track"
+    ],
+    "description": "track = bool"
+  },
+  "vocabulary-rudolf": {
+    "prefix": "rudolf",
+    "body": [
+      "rudolf"
+    ],
+    "description": "rudolf = class"
+  },
+  "vocabulary-diamond": {
+    "prefix": "diamond",
+    "body": [
+      "diamond"
+    ],
+    "description": "diamond = extends"
+  },
+  "vocabulary-opera": {
+    "prefix": "opera",
+    "body": [
+      "opera"
+    ],
+    "description": "opera = constructor"
+  },
+  "vocabulary-condor": {
+    "prefix": "condor",
+    "body": [
+      "condor"
+    ],
+    "description": "condor = public"
+  },
+  "vocabulary-groove": {
+    "prefix": "groove",
+    "body": [
+      "groove"
+    ],
+    "description": "groove = private"
+  },
+  "vocabulary-scarlet": {
+    "prefix": "scarlet",
+    "body": [
+      "scarlet"
+    ],
+    "description": "scarlet = if"
+  },
+  "vocabulary-vodka": {
+    "prefix": "vodka",
+    "body": [
+      "vodka"
+    ],
+    "description": "vodka = else"
+  },
+  "vocabulary-goldship": {
+    "prefix": "goldship",
+    "body": [
+      "goldship"
+    ],
+    "description": "goldship = while"
+  },
+  "vocabulary-kitasan": {
+    "prefix": "kitasan",
+    "body": [
+      "kitasan"
+    ],
+    "description": "kitasan = for"
+  },
+  "vocabulary-rice": {
+    "prefix": "rice",
+    "body": [
+      "rice"
+    ],
+    "description": "rice = break"
+  },
+  "vocabulary-urara": {
+    "prefix": "urara",
+    "body": [
+      "urara"
+    ],
+    "description": "urara = continue"
+  },
+  "vocabulary-special": {
+    "prefix": "special",
+    "body": [
+      "special"
+    ],
+    "description": "special = return"
+  },
+  "vocabulary-tachyon": {
+    "prefix": "tachyon",
+    "body": [
+      "tachyon"
+    ],
+    "description": "tachyon = new"
+  },
+  "vocabulary-teio": {
+    "prefix": "teio",
+    "body": [
+      "teio"
+    ],
+    "description": "teio = this"
+  },
+  "vocabulary-mcqueen": {
+    "prefix": "mcqueen",
+    "body": [
+      "mcqueen"
+    ],
+    "description": "mcqueen = super"
+  },
+  "vocabulary-nature": {
+    "prefix": "nature",
+    "body": [
+      "nature"
+    ],
+    "description": "nature = null"
+  },
+  "vocabulary-turf": {
+    "prefix": "turf",
+    "body": [
+      "turf"
+    ],
+    "description": "turf = true"
+  },
+  "vocabulary-dirt": {
+    "prefix": "dirt",
+    "body": [
+      "dirt"
+    ],
+    "description": "dirt = false"
+  },
+  "vocabulary-treino": {
+    "prefix": "treino",
+    "body": [
+      "treino"
+    ],
+    "description": "treino = try"
+  },
+  "vocabulary-tropeco": {
+    "prefix": "tropeco",
+    "body": [
+      "tropeco"
+    ],
+    "description": "tropeco = catch"
+  },
+  "vocabulary-desaquecer": {
+    "prefix": "desaquecer",
+    "body": [
+      "desaquecer"
+    ],
+    "description": "desaquecer = finally"
+  },
+  "vocabulary-desclassificar": {
+    "prefix": "desclassificar",
+    "body": [
+      "desclassificar"
+    ],
+    "description": "desclassificar = throw"
+  },
+  "vocabulary-trofeu": {
+    "prefix": "trofeu",
+    "body": [
+      "trofeu"
+    ],
+    "description": "trofeu = const"
+  },
+  "vocabulary-tatica": {
+    "prefix": "tatica",
+    "body": [
+      "tatica"
+    ],
+    "description": "tatica = fn"
+  },
+  "vocabulary-own": {
+    "prefix": "own",
+    "body": [
+      "own"
+    ],
+    "description": "own = own"
+  },
+  "vocabulary-borrow": {
+    "prefix": "borrow",
+    "body": [
+      "borrow"
+    ],
+    "description": "borrow = borrow"
+  },
+  "vocabulary-mut": {
+    "prefix": "mut",
+    "body": [
+      "mut"
+    ],
+    "description": "mut = mut"
+  },
+  "vocabulary-mover": {
+    "prefix": "mover",
+    "body": [
+      "mover"
+    ],
+    "description": "mover = move"
+  },
+  "vocabulary-estilo": {
+    "prefix": "estilo",
+    "body": [
+      "estilo"
+    ],
+    "description": "estilo = interface"
+  },
+  "vocabulary-adota": {
+    "prefix": "adota",
+    "body": [
+      "adota"
+    ],
+    "description": "adota = implements"
+  },
+  "vocabulary-em": {
+    "prefix": "em",
+    "body": [
+      "em"
+    ],
+    "description": "em = in"
+  },
+  "vocabulary-convocar": {
+    "prefix": "convocar",
+    "body": [
+      "convocar"
+    ],
+    "description": "convocar = import"
+  },
+  "vocabulary-como": {
+    "prefix": "como",
+    "body": [
+      "como"
+    ],
+    "description": "como = as"
+  }
+}

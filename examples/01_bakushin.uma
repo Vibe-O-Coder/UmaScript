@@ -1,0 +1,17 @@
+// Toda variavel possui tipo explicito.
+wit saudacao = "BAKUSHIN! Bem-vindos a UmaScript.";
+speed velocidade = 1200;
+stamina resistencia = 875.5;
+guts categoria = 'A';
+track gramado = turf;
+track areia = dirt;
+
+bakushin(saudacao);
+bakushin("Speed:", velocidade, "Stamina:", resistencia);
+bakushin("Guts:", categoria, "Track:", gramado, areia);
+
+power torcer(wit nome) {
+    bakushin("Vamos, " + nome + "!");
+    special;
+}
+torcer("Sakura Bakushin O");

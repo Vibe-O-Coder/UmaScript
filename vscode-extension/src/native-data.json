@@ -1,0 +1,370 @@
+[
+  {
+    "name": "uma_json_normalize",
+    "type": "wit",
+    "signature": "wit uma_json_normalize(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_get",
+    "type": "wit",
+    "signature": "wit uma_json_get(wit arg1, wit arg2)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_at",
+    "type": "wit",
+    "signature": "wit uma_json_at(wit arg1, speed arg2)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_kind",
+    "type": "wit",
+    "signature": "wit uma_json_kind(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_value",
+    "type": "wit",
+    "signature": "wit uma_json_value(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_size",
+    "type": "speed",
+    "signature": "speed uma_json_size(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_set",
+    "type": "wit",
+    "signature": "wit uma_json_set(wit arg1, wit arg2, wit arg3)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_json_quote",
+    "type": "wit",
+    "signature": "wit uma_json_quote(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_base64_encode",
+    "type": "wit",
+    "signature": "wit uma_base64_encode(speed[] arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_base64_decode",
+    "type": "speed[]",
+    "signature": "speed[] uma_base64_decode(wit arg1)",
+    "documentation": "Dados estruturados com validacao e erros capturaveis.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_args",
+    "type": "wit[]",
+    "signature": "wit[] uma_args()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_eof",
+    "type": "track",
+    "signature": "track uma_eof()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_read_all",
+    "type": "wit",
+    "signature": "wit uma_read_all()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_exit",
+    "type": "power",
+    "signature": "power uma_exit(speed arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_stderr",
+    "type": "power",
+    "signature": "power uma_stderr(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_hash",
+    "type": "speed",
+    "signature": "speed uma_hash(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_replace",
+    "type": "wit",
+    "signature": "wit uma_replace(wit arg1, wit arg2, wit arg3)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_lower",
+    "type": "wit",
+    "signature": "wit uma_lower(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_upper",
+    "type": "wit",
+    "signature": "wit uma_upper(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_regex_replace",
+    "type": "wit",
+    "signature": "wit uma_regex_replace(wit arg1, wit arg2, wit arg3)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_mkdir",
+    "type": "power",
+    "signature": "power uma_mkdir(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_remove",
+    "type": "track",
+    "signature": "track uma_remove(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_list_dir",
+    "type": "wit[]",
+    "signature": "wit[] uma_list_dir(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_path_join",
+    "type": "wit",
+    "signature": "wit uma_path_join(wit arg1, wit arg2)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_basename",
+    "type": "wit",
+    "signature": "wit uma_basename(wit arg1)",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_random",
+    "type": "speed",
+    "signature": "speed uma_random()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_unix_time",
+    "type": "speed",
+    "signature": "speed uma_unix_time()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_collect",
+    "type": "power",
+    "signature": "power uma_collect()",
+    "documentation": "Biblioteca 3.1; erros de execucao podem ser capturados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_sqrt",
+    "type": "stamina",
+    "signature": "stamina uma_sqrt(stamina arg1)",
+    "documentation": "Raiz quadrada; rejeita negativos e resultados nao finitos.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_pow",
+    "type": "stamina",
+    "signature": "stamina uma_pow(stamina arg1, stamina arg2)",
+    "documentation": "Potencia real; rejeita resultados nao finitos.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_sin",
+    "type": "stamina",
+    "signature": "stamina uma_sin(stamina arg1)",
+    "documentation": "Seno em radianos.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_cos",
+    "type": "stamina",
+    "signature": "stamina uma_cos(stamina arg1)",
+    "documentation": "Cosseno em radianos.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_floor",
+    "type": "stamina",
+    "signature": "stamina uma_floor(stamina arg1)",
+    "documentation": "Maior inteiro real menor ou igual ao argumento.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_ceil",
+    "type": "stamina",
+    "signature": "stamina uma_ceil(stamina arg1)",
+    "documentation": "Menor inteiro real maior ou igual ao argumento.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_log",
+    "type": "stamina",
+    "signature": "stamina uma_log(stamina arg1)",
+    "documentation": "Logaritmo natural; exige argumento positivo.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_read_text",
+    "type": "wit",
+    "signature": "wit uma_read_text(wit arg1)",
+    "documentation": "Le arquivo UTF-8 inteiro; erro de abertura, leitura ou codificacao interrompe a execucao.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_write_text",
+    "type": "power",
+    "signature": "power uma_write_text(wit arg1, wit arg2)",
+    "documentation": "Grava UTF-8 substituindo o conteudo; falhas de E/S sao erros.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_append_text",
+    "type": "power",
+    "signature": "power uma_append_text(wit arg1, wit arg2)",
+    "documentation": "Acrescenta texto UTF-8 ao final do arquivo.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_exists",
+    "type": "track",
+    "signature": "track uma_exists(wit arg1)",
+    "documentation": "Consulta se o caminho existe; erros de acesso sao reportados.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_clock",
+    "type": "speed",
+    "signature": "speed uma_clock()",
+    "documentation": "Tempo monotonicamente crescente em nanossegundos; origem nao especificada.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_sleep",
+    "type": "power",
+    "signature": "power uma_sleep(speed arg1)",
+    "documentation": "Suspende a thread por milissegundos nao negativos.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_slice",
+    "type": "wit",
+    "signature": "wit uma_slice(wit arg1, speed arg2, speed arg3)",
+    "documentation": "Substring por valores escalares Unicode: inicio inclusivo e quantidade; limites invalidos sao erros.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_find",
+    "type": "speed",
+    "signature": "speed uma_find(wit arg1, wit arg2)",
+    "documentation": "Primeira ocorrencia, em valores escalares Unicode; -1 se ausente.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_env",
+    "type": "wit",
+    "signature": "wit uma_env(wit arg1)",
+    "documentation": "Le variavel de ambiente; retorna texto vazio quando ausente.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_read_bytes",
+    "type": "speed[]",
+    "signature": "speed[] uma_read_bytes(wit arg1)",
+    "documentation": "Le bytes de um arquivo em inteiros de 0 a 255.",
+    "kind": "function",
+    "builtin": true
+  },
+  {
+    "name": "uma_write_bytes",
+    "type": "power",
+    "signature": "power uma_write_bytes(wit arg1, speed[] arg2)",
+    "documentation": "Grava bytes; rejeita valores fora de 0..255.",
+    "kind": "function",
+    "builtin": true
+  }
+]

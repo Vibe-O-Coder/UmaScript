@@ -1,0 +1,24 @@
+convocar "std/collections" como c;
+convocar "std/json" como j;
+estilo Competidora { speed ritmo(); }
+rudolf Corredora adota Competidora {
+    condor wit nome;
+    groove speed velocidade;
+    opera(wit nome, speed velocidade) { teio.nome=nome; teio.velocidade=velocidade; }
+    condor speed ritmo() { special teio.velocidade; }
+}
+Corredora[] pelotao=[tachyon Corredora("Sakura",12),tachyon Corredora("Teio",11),tachyon Corredora("Suzuka",13)];
+c.Mapa<wit,speed> placar=tachyon c.Mapa<wit,speed>();
+kitasan(Corredora atleta em pelotao) { placar.set(atleta.nome,0); }
+kitasan(speed volta=1;volta<=3;volta++){
+    bakushin("Volta",volta);
+    kitasan(Corredora atleta em pelotao){
+        speed pontos=placar.get(atleta.nome)+atleta.ritmo()+volta;
+        placar.set(atleta.nome,pontos);
+        bakushin(atleta.nome,pontos);
+    }
+}
+treino { placar.get("ausente"); } tropeco(wit mensagem) { bakushin("Erro tratado:",mensagem); }
+j.Json resumo=tachyon j.Json("{}");
+kitasan(Corredora atleta em pelotao){resumo.set(atleta.nome,j.parseJson(maruzensky(placar.get(atleta.nome))));}
+bakushin("Placar JSON:",resumo.stringify());

@@ -1,0 +1,6 @@
+db3199bc83dcc83eba6cd55f7b823414b376e888efd19a6e480030a8fb1d5e89  bin/windows-x64/uma.exe
+c1ddfc4894e9287cedcecaac9a54bd74e2ff06dec3866d73e87dd1b48d34deee  bin/linux-x64/uma
+7c13a21d0696f71daf88aaefd4fe18937486966ce6d8bf13c1c97833deabc179  dist/UmaScript-3.1.0-linux-x64-portatil.zip
+37fc09ee6d5d4005f0b60b14541aa56082900e0f3b4e7c0a2bc87bdf05f02e16  dist/UmaScript-3.1.0-windows-x64-completo.zip
+7c13a21d0696f71daf88aaefd4fe18937486966ce6d8bf13c1c97833deabc179  dist/UmaScript-3.1.0-windows-x64-portatil.zip
+88b17b37ca17fdca32b089a69aaa77eda9847ed288c67f243f0f017fc932b1fa  dist/umascript-3.1.0.vsix

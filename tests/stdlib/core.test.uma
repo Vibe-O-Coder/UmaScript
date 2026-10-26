@@ -1,0 +1,31 @@
+import "std/math";
+import "std/text";
+import "std/collections";
+import "std/memory";
+import "std/random";
+
+flash(min(3, 7) == 3 && max(3, 7) == 7 && abs(-7) == 7);
+flash(clamp(30, 0, 10) == 10 && gcd(84, 18) == 6);
+flash(sqrt(144) == 12.0 && pow(2, 10) == 1024.0);
+flash(floor(-1.2) == -2.0 && ceil(-1.2) == -1.0);
+flash(substring("馬é😀", 1, 2) == "é😀");
+flash(indexOf("馬é😀", "😀") == 2);
+flash(join(split(",馬,,é,", ","), ",") == ",馬,,é,");
+flash(trim(" \t馬\r\n") == "馬");
+flash(startsWith("馬é", "馬") && endsWith("馬é", "é"));
+speed[] a = [9, -4, 5, 5, 0, 7]; sort(a);
+flash(a[0] == -4 && a[5] == 9 && binarySearch(a, 5) == 2);
+flash(binarySearch(a, 10) == -1 && sum(a) == 22);
+speed[] b = copy(a); reverse(b); flash(b[0] == 9 && a[0] == -4);
+IntStack pilha = tachyon IntStack(); pilha.push(3); pilha.push(7);
+flash(pilha.pop() == 7 && pilha.size() == 1 && !pilha.empty());
+StringIntMap mapa = tachyon StringIntMap(); mapa.set("Teio", 4); mapa.set("Sakura", 7);
+mapa.set("Teio", 9); flash(mapa.size() == 2 && mapa.get("Teio") == 9);
+flash(mapa.getOr("Suzuka", -1) == -1 && mapa.keys()[0] == "Sakura");
+flash(mapa.remove("Sakura") && !mapa.has("Sakura") && !mapa.remove("ausente"));
+ByteBuffer buffer = tachyon ByteBuffer(16); buffer.write64(0, -9223372036854775808);
+buffer.write64(8, 9223372036854775807);
+flash(buffer.read64(0) == -9223372036854775808 && buffer.read64(8) == 9223372036854775807);
+Random rng = tachyon Random(1); flash(rng.next() == 48271 && rng.next() == 182605794);
+kitasan(speed i = 0; i < 100; i++) { speed n = rng.nextInt(7); flash(n >= 0 && n < 7); }
+bakushin("Biblioteca padrao validada.");

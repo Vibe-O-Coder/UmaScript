@@ -1,0 +1,18 @@
+import "std/math";
+import "std/text";
+import "std/collections";
+import "std/memory";
+import "std/time";
+
+speed[] tempos = [8, 3, 5, 1, 9, 3];
+sort(tempos);
+bakushin("Ordenados:", tempos, "Soma:", sum(tempos));
+flash(binarySearch(tempos, 5) == 3);
+bakushin(join(split("Sakura,Teio,Suzuka", ","), " | "));
+bakushin("Raiz:", sqrt(144), "MDC:", gcd(48, 18));
+ByteBuffer buffer = tachyon ByteBuffer(16);
+buffer.write64(0, -42);
+flash(buffer.read64(0) == -42);
+bakushin("Buffer:", buffer.bytes());
+Stopwatch relogio = tachyon Stopwatch();
+flash(relogio.elapsed() >= 0);

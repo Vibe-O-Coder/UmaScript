@@ -1,0 +1,18 @@
+/// Documento JSON. A serializacao e canonica e as operacoes validam os tipos.
+/// get/set analisam o documento; custo O(tamanho do documento).
+rudolf Json {
+    groove wit source="null";
+    opera(wit texto){teio.source=uma_json_normalize(texto);}
+    condor wit stringify(){special teio.source;}
+    condor wit kind(){special uma_json_kind(teio.source);}
+    condor speed size(){special uma_json_size(teio.source);}
+    condor Json get(wit chave){special tachyon Json(uma_json_get(teio.source,chave));}
+    condor Json at(speed indice){special tachyon Json(uma_json_at(teio.source,indice));}
+    condor wit asText(){flash(teio.kind()=="string","JSON nao e texto");special uma_json_value(teio.source);}
+    condor speed asInt(){flash(teio.kind()=="number","JSON nao e numero");special taiki(uma_json_value(teio.source));}
+    condor stamina asReal(){flash(teio.kind()=="number","JSON nao e numero");special creek(uma_json_value(teio.source));}
+    condor track asBool(){flash(teio.kind()=="bool","JSON nao e booleano");special uma_json_value(teio.source)=="true";}
+    condor power set(wit chave,Json valor){teio.source=uma_json_set(teio.source,chave,valor.stringify());}
+}
+Json parseJson(wit texto){special tachyon Json(texto);}
+Json jsonText(wit texto){special tachyon Json(uma_json_quote(texto));}

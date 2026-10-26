@@ -1,0 +1,60 @@
+/*
+ * Contadores sem limite numerico fixo: cada incremento cria um elo.
+ * O valor do contador e o comprimento da cadeia, nao um speed.
+ * Veja docs/TURING.md para o argumento de completude.
+ */
+rudolf Elo {
+    condor Elo anterior;
+    opera(Elo eloAnterior) {
+        teio.anterior = eloAnterior;
+    }
+}
+
+rudolf Contador {
+    groove Elo topo = nature;
+
+    condor power incrementar() {
+        teio.topo = tachyon Elo(teio.topo);
+    }
+    condor track vazio() {
+        special teio.topo == nature;
+    }
+    condor power decrementar() {
+        flash(!teio.vazio(), "Contador ja esta em zero.");
+        teio.topo = teio.topo.anterior;
+    }
+}
+
+Contador a = tachyon Contador();
+Contador b = tachyon Contador();
+kitasan (speed i = 0; i < 3; i++) {
+    a.incrementar();
+}
+kitasan (speed i = 0; i < 4; i++) {
+    b.incrementar();
+}
+
+// Programa de dois contadores: transfere B para A (3 + 4).
+speed estado = 0;
+goldship (estado != 2) {
+    scarlet (estado == 0) {
+        scarlet (b.vazio()) {
+            estado = 2;
+        } vodka {
+            b.decrementar();
+            estado = 1;
+        }
+    } vodka scarlet (estado == 1) {
+        a.incrementar();
+        estado = 0;
+    }
+}
+
+// Conversao para speed somente para exibir este exemplo pequeno.
+speed resultado = 0;
+goldship (!a.vazio()) {
+    a.decrementar();
+    resultado++;
+}
+bakushin("Resultado da maquina de contadores:", resultado);
+flash(resultado == 7 && b.vazio());

@@ -1,0 +1,40 @@
+{
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+  "compiler": "g++.exe (Rev13, Built by MSYS2 project) 15.2.0",
+  "count": 10000000,
+  "runs": 9,
+  "seed": 17,
+  "checksum": 1558294560,
+  "samples_ms": {
+    "UmaScript AOT": [
+      44.5975,
+      44.8036,
+      43.8086,
+      44.3642,
+      43.8449,
+      43.6029,
+      43.3236,
+      44.3307,
+      44.1882
+    ],
+    "C++": [
+      44.2578,
+      43.6581,
+      43.1992,
+      43.2844,
+      44.1932,
+      43.4946,
+      43.1457,
+      43.2223,
+      42.9944
+    ]
+  },
+  "median_ms": {
+    "UmaScript AOT": 44.1882,
+    "C++": 43.2844
+  },
+  "method": "Internal monotonic clock; excludes startup/compilation; warm-up then alternating order. Input read at runtime.",
+  "limits": "One scalar integer workload; not a claim about arrays, allocation, virtual calls, I/O or all C/C++ programs.",
+  "uma_to_cpp_ratio": 1.0208805019822385
+}

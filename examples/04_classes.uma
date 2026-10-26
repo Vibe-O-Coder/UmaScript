@@ -1,0 +1,44 @@
+rudolf Corredora {
+    groove speed velocidade;
+    condor wit nome;
+
+    opera(wit nomeInicial, speed velocidadeInicial) {
+        teio.nome = nomeInicial;
+        teio.velocidade = velocidadeInicial;
+    }
+
+    condor power treinar(speed ganho) {
+        teio.velocidade += ganho;
+    }
+
+    condor speed ritmo() {
+        special teio.velocidade;
+    }
+
+    condor wit apresentar() {
+        special teio.nome + " entra na pista!";
+    }
+}
+
+rudolf Velocista diamond Corredora {
+    groove speed bonus = 100;
+
+    opera(wit nomeInicial, speed velocidadeInicial)
+        : mcqueen(nomeInicial, velocidadeInicial) {
+    }
+
+    condor speed ritmo() {
+        special mcqueen.ritmo() + teio.bonus;
+    }
+
+    condor wit apresentar() {
+        special mcqueen.apresentar() + " BAKUSHIN!";
+    }
+}
+
+// Uma referencia da classe base preserva o polimorfismo.
+Corredora uma = tachyon Velocista("Sakura Bakushin O", 1000);
+uma.treinar(50);
+bakushin(uma.apresentar());
+bakushin("Ritmo:", uma.ritmo());
+flash(uma.ritmo() == 1150);

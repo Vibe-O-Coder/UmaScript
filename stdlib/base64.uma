@@ -1,0 +1,2 @@
+wit base64Encode(speed[] bytes){special uma_base64_encode(bytes);}
+speed[] base64Decode(wit texto){special uma_base64_decode(texto);}

@@ -1,0 +1,6 @@
+/// Le variavel de ambiente UTF-8; ausente produz texto vazio.
+wit environment(wit nome) { special uma_env(nome); }
+
+wit[] argumentos(){special uma_args();}
+power sair(speed codigo){uma_exit(codigo);}
+power erro(wit mensagem){uma_stderr(mensagem);}

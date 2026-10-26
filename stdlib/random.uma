@@ -1,0 +1,25 @@
+/// PRNG Park-Miller deterministico (multiplicador 48271). Nao e criptografico.
+/// Cada instancia possui estado independente; semente aceita 1..2147483646.
+rudolf Random {
+    groove speed estado;
+    opera(speed semente) {
+        flash(semente > 0 && semente < 2147483647, "Random: semente fora de 1..2147483646");
+        teio.estado = semente;
+    }
+    /// Proximo inteiro em 1..2147483646; altera o estado. O(1).
+    condor speed next() {
+        teio.estado = (teio.estado * 48271) % 2147483647;
+        special teio.estado;
+    }
+    /// Inteiro uniforme em [0, limite). Usa rejeicao para evitar vies de modulo.
+    /// limite deve estar em 1..2147483646. Custo esperado O(1).
+    condor speed nextInt(speed limite) {
+        flash(limite > 0 && limite <= 2147483646, "Random: limite invalido");
+        speed corte = 2147483646 - (2147483646 % limite);
+        speed valor = teio.next() - 1;
+        goldship(valor >= corte) { valor = teio.next() - 1; }
+        special valor % limite;
+    }
+    /// Real no intervalo aberto (0,1); altera o estado.
+    condor stamina nextReal() { special teio.next() / 2147483647.0; }
+}

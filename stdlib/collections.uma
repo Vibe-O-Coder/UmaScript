@@ -1,0 +1,122 @@
+/// Soma todos os inteiros. O(n); overflow produz erro.
+speed sum(speed[] valores) {
+    speed total = 0;
+    kitasan(speed i = 0; i < oguri(valores); i++) { total += valores[i]; }
+    special total;
+}
+/// Busca linear; retorna o primeiro indice ou -1. O(n).
+speed findIndex(speed[] valores, speed valor) {
+    kitasan(speed i = 0; i < oguri(valores); i++) { scarlet(valores[i] == valor) { special i; } }
+    special -1;
+}
+/// Inverte o array no proprio armazenamento; aliases observam a alteracao. O(n).
+power reverse(speed[] valores) {
+    speed i = 0; speed j = oguri(valores) - 1;
+    goldship(i < j) { speed temp = valores[i]; valores[i] = valores[j]; valores[j] = temp; i++; j--; }
+}
+/// Copia independente dos valores de um array inteiro. O(n), O(n) memoria.
+speed[] copy(speed[] valores) {
+    speed[] resultado = [];
+    kitasan(speed i = 0; i < oguri(valores); i++) { falcon(resultado, valores[i]); }
+    special resultado;
+}
+// Heapsort: O(n log n) no pior caso, O(1) memoria auxiliar.
+power umaSiftDown(speed[] a, speed raiz, speed tamanho) {
+    goldship(raiz < tamanho / 2) {
+        speed filho = raiz * 2 + 1;
+        scarlet(filho + 1 < tamanho && a[filho] < a[filho + 1]) { filho++; }
+        scarlet(a[raiz] >= a[filho]) { special; }
+        speed temp = a[raiz]; a[raiz] = a[filho]; a[filho] = temp; raiz = filho;
+    }
+}
+/// Ordena inteiros in-place em ordem crescente por heapsort. O(n log n), instavel.
+power sort(speed[] valores) {
+    ordenar(valores);
+}
+/// Busca binaria em array previamente ordenado. Indice ou -1; O(log n).
+speed binarySearch(speed[] valores, speed valor) {
+    speed baixo = 0; speed alto = oguri(valores);
+    goldship(baixo < alto) {
+        speed meio = baixo + (alto - baixo) / 2;
+        scarlet(valores[meio] < valor) { baixo = meio + 1; } vodka { alto = meio; }
+    }
+    scarlet(baixo < oguri(valores) && valores[baixo] == valor) { special baixo; }
+    special -1;
+}
+/// Pilha LIFO de inteiros com encapsulamento. push amortizado O(1), pop O(1).
+rudolf IntStack {
+    groove speed[] valores;
+    condor power push(speed valor) { falcon(teio.valores, valor); }
+    condor speed pop() { special dober(teio.valores); }
+    condor speed size() { special oguri(teio.valores); }
+    condor track empty() { special oguri(teio.valores) == 0; }
+}
+
+/// Lista generica, especializada pelo compilador para cada T.
+rudolf Lista<T> {
+    groove T[] valores;
+    condor power push(T valor){falcon(teio.valores,valor);}
+    condor T pop(){special dober(teio.valores);}
+    condor T get(speed indice){special teio.valores[indice];}
+    condor power set(speed indice,T valor){teio.valores[indice]=valor;}
+    condor speed size(){special oguri(teio.valores);}
+    condor track empty(){special teio.size()==0;}
+}
+
+/// Hash com enderecamento aberto e tombstones. Insercao amortizada O(1).
+/// K deve ser um tipo escalar imutavel (wit, speed, guts ou track).
+rudolf Mapa<K,V> {
+    groove K[] nomes;
+    groove V[] valores;
+    groove speed[] estado;
+    groove speed quantidade=0;
+    groove speed usados=0;
+    groove speed locate(K chave){
+        speed capacidade=oguri(teio.estado);
+        scarlet(capacidade==0){special -1;}
+        speed i=uma_hash(maruzensky(chave))%capacidade;
+        speed livre=-1;
+        kitasan(speed n=0;n<capacidade;n++){
+            scarlet(teio.estado[i]==0){scarlet(livre>=0){special livre;}special i;}
+            scarlet(teio.estado[i]==1 && teio.nomes[i]==chave){special i;}
+            scarlet(teio.estado[i]==2 && livre<0){livre=i;}
+            i=(i+1)%capacidade;
+        }
+        special livre;
+    }
+    groove power resize(speed capacidade){
+        K[] nomesAntigos=teio.nomes;V[] valoresAntigos=teio.valores;speed[] estadosAntigos=teio.estado;
+        teio.nomes=[];teio.valores=[];teio.estado=[];teio.quantidade=0;teio.usados=0;
+        K chaveVazia;V valorVazio;
+        kitasan(speed i=0;i<capacidade;i++){falcon(teio.nomes,chaveVazia);falcon(teio.valores,valorVazio);falcon(teio.estado,0);}
+        kitasan(speed i=0;i<oguri(estadosAntigos);i++){scarlet(estadosAntigos[i]==1){teio.set(nomesAntigos[i],valoresAntigos[i]);}}
+    }
+    condor speed size(){special teio.quantidade;}
+    condor track has(K chave){speed i=teio.locate(chave);special i>=0 && teio.estado[i]==1;}
+    condor V get(K chave){speed i=teio.locate(chave);flash(i>=0 && teio.estado[i]==1,"Mapa: chave ausente");special teio.valores[i];}
+    condor V getOr(K chave,V padrao){speed i=teio.locate(chave);scarlet(i>=0 && teio.estado[i]==1){special teio.valores[i];}special padrao;}
+    condor power set(K chave,V valor){
+        speed capacidade=oguri(teio.estado);
+        scarlet(capacidade==0){teio.resize(16);}vodka{scarlet((teio.usados+1)*10>=capacidade*7){teio.resize(capacidade*2);}}
+        speed i=teio.locate(chave);
+        scarlet(teio.estado[i]!=1){scarlet(teio.estado[i]==0){teio.usados++;}teio.quantidade++;}
+        teio.estado[i]=1;teio.nomes[i]=chave;teio.valores[i]=valor;
+    }
+    condor track remove(K chave){
+        speed i=teio.locate(chave);scarlet(i<0 || teio.estado[i]!=1){special dirt;}
+        teio.estado[i]=2;teio.quantidade--;K chaveVazia;V valorVazio;teio.nomes[i]=chaveVazia;teio.valores[i]=valorVazio;special turf;
+    }
+    condor K[] keys(){K[] chaves=[];kitasan(speed i=0;i<oguri(teio.estado);i++){scarlet(teio.estado[i]==1){falcon(chaves,teio.nomes[i]);}}special chaves;}
+}
+/// API 3.0 preservada, agora com insercao hash. keys continua ordenado.
+rudolf StringIntMap diamond Mapa<wit,speed> {
+    condor wit[] keys(){wit[] chaves=mcqueen.keys();ordenar(chaves);special chaves;}
+}
+rudolf Conjunto<T> {
+    groove Mapa<T,track> dados=tachyon Mapa<T,track>();
+    condor power add(T valor){teio.dados.set(valor,turf);}
+    condor track has(T valor){special teio.dados.has(valor);}
+    condor track remove(T valor){special teio.dados.remove(valor);}
+    condor speed size(){special teio.dados.size();}
+    condor T[] values(){special teio.dados.keys();}
+}

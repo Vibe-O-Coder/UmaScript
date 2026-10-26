@@ -1,0 +1,5 @@
+bakushin("Nome da corredora:");
+wit nome = suzuka();
+bakushin("Quantas vitorias?");
+speed vitorias = taiki(suzuka());
+bakushin("Ola, " + nome + ". Vitorias: " + maruzensky(vitorias));

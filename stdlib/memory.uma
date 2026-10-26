@@ -1,0 +1,36 @@
+/// Buffer logico de bytes com limites verificados. Cada byte ocupa um speed.
+/// Suporta leitura/escrita little-endian de palavras; nao expoe ponteiros brutos.
+rudolf ByteBuffer {
+    groove speed[] dados;
+    opera(speed tamanho) {
+        flash(tamanho >= 0, "ByteBuffer: tamanho negativo");
+        kitasan(speed i = 0; i < tamanho; i++) { falcon(teio.dados, 0); }
+    }
+    /// Quantidade de bytes logicos. O(1).
+    condor speed size() { special oguri(teio.dados); }
+    /// Le byte no intervalo 0..255; indice invalido e erro.
+    condor speed read8(speed indice) { special teio.dados[indice]; }
+    /// Grava byte; exige valor no intervalo 0..255.
+    condor power write8(speed indice, speed valor) {
+        flash(valor >= 0 && valor <= 255, "ByteBuffer: byte fora de 0..255");
+        teio.dados[indice] = valor;
+    }
+    /// Le palavra de 64 bits little-endian, interpretando o bit 63 como sinal.
+    condor speed read64(speed indice) {
+        flash(indice >= 0 && indice <= teio.size() - 8, "ByteBuffer: palavra fora dos limites");
+        speed valor = 0;
+        kitasan(speed i = 0; i < 8; i++) { valor |= teio.dados[indice + i] << (i * 8); }
+        special valor;
+    }
+    /// Grava todos os 64 bits de valor em little-endian. Verifica o intervalo inteiro.
+    condor power write64(speed indice, speed valor) {
+        flash(indice >= 0 && indice <= teio.size() - 8, "ByteBuffer: palavra fora dos limites");
+        kitasan(speed i = 0; i < 8; i++) { teio.dados[indice + i] = (valor >> (i * 8)) & 255; }
+    }
+    /// Copia independente dos bytes logicos.
+    condor speed[] bytes() {
+        speed[] resultado = [];
+        kitasan(speed i = 0; i < teio.size(); i++) { falcon(resultado, teio.dados[i]); }
+        special resultado;
+    }
+}

@@ -1,0 +1,41 @@
+rudolf Atleta {
+    condor wit nome;
+    groove stamina distancia;
+    groove stamina ritmoBase;
+    groove stamina folego;
+
+    opera(wit nomeInicial, stamina ritmoInicial) {
+        teio.nome = nomeInicial;
+        teio.ritmoBase = ritmoInicial;
+        teio.folego = 1.0;
+    }
+    condor power correr() {
+        teio.distancia += teio.ritmoBase * teio.folego;
+        teio.folego -= 0.015;
+    }
+    condor stamina progresso() {
+        special teio.distancia;
+    }
+}
+
+Atleta[] participantes = [
+    tachyon Atleta("Special Week", 18.5),
+    tachyon Atleta("Silence Suzuka", 19.0),
+    tachyon Atleta("Tokai Teio", 18.8)
+];
+
+kitasan (speed turno = 0; turno < 10; turno++) {
+    kitasan (speed i = 0; i < oguri(participantes); i++) {
+        participantes[i].correr();
+    }
+}
+Atleta campea = participantes[0];
+kitasan (speed i = 0; i < oguri(participantes); i++) {
+    Atleta candidata = participantes[i];
+    bakushin(candidata.nome, "percorreu", candidata.progresso());
+    scarlet (candidata.progresso() > campea.progresso()) {
+        campea = candidata;
+    }
+}
+bakushin("Vencedora:", campea.nome);
+flash(campea.nome == "Silence Suzuka");
